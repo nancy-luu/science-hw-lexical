@@ -1,3 +1,7 @@
+import * as ReactDOM from 'react-dom';
+import {useCallback, useEffect, useMemo, useState} from 'react';
+
+// Lexical Imports
 import {useLexicalComposerContext} from '@lexical/react/LexicalComposerContext';
 import {
   LexicalTypeaheadMenuPlugin,
@@ -6,9 +10,8 @@ import {
   useBasicTypeaheadTriggerMatch,
 } from '@lexical/react/LexicalTypeaheadMenuPlugin';
 import {TextNode} from 'lexical';
-import {useCallback, useEffect, useMemo, useState} from 'react';
-import * as ReactDOM from 'react-dom';
 
+// Project Imports
 import {$createMentionNode} from '../nodes/MentionNode';
 import { Pokemon } from '../App';
 
@@ -93,7 +96,7 @@ const lookupService = {
       const uniquePokemon = [...new Set(results.map((pokemon) => pokemon.name))];
 
       callback(uniquePokemon);
-    }, 500);
+    }, 200);
   },
 };
 

@@ -2,6 +2,7 @@ import { useState , useEffect } from 'react'
 import './App.css'
 import Editor from './components/Editor'
 import axios from 'axios';
+import { EmojiClickEventProvider } from './EmojiClickEventProvider';
 
 interface Pokemons {
   name: string;
@@ -34,10 +35,14 @@ const App: React.FC = () => {
 
   return (
     <div>
-      <h1>Welcome to Pokedexical</h1>
-      <div className="editor-wrapper">
-        <Editor pokemons={pokemons}/>
+      <div className="heading-container">
+        <h1>Welcome to Pokedexical</h1>
       </div>
+      <EmojiClickEventProvider> 
+        <div className="editor-wrapper">
+          <Editor pokemons={pokemons}/>
+        </div>
+      </EmojiClickEventProvider>
     </div>
   )
 }
